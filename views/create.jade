@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 Add
+  form(method="POST" action="/admin/create")
+    ul
+      li
+        h3 From*:
+        input#name(type="text", name="from")
+      li
+        h3 Buddy*:
+        input#name(type="text", name="buddy")
+      li
+        h3 Amount*:
+        input#attributes(name="amount")
+      li
+        h3 Note:
+        textarea#note(name="note")
+    ul.control-btns
+      li
+        button(type="submit", class="admin-btn") Create
+      li
+        a(href="/admin", class="admin-btn") Cancel
+

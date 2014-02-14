@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  form(method="POST" action="/admin/#{buddyBeer._id}")
+    input(type="hidden", name="_method", value="PUT")
+    input(type="hidden", name="buddyId", value="#{buddyBeer._id}")
+    ul.flush-all
+      li
+        h3 Buddy:
+        input#name(type="text", name="buddy", value="#{buddyBeer.buddy}")
+      li
+        h3 From:
+        input#name(type="text", name="from", value="#{buddyBeer.from}")
+      li
+        h3 Note:
+        textarea#note(name="note") #{buddyBeer.note}
+      li
+        h3 Amount:
+        input#value(name="amount", value="#{buddyBeer.amount}")
+    ul.control-btns
+      li: button(type="submit", class="admin-btn") Update
+      li: a(href="/admin/", class="admin-btn") Cancel
+  form(action="/admin/#{buddyBeer.id}", method="POST",id="delete")
+    input(type="hidden", name="_method", value="DELETE")
+    button(type="submit", class="admin-btn") Delete

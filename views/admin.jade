@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Admin
+  each beer in buddyBeers
+    div.buddyBeer
+      h2
+        a(href="/admin/#{beer._id}/edit", data-buddy="#{beer._id}") #{beer.from} for #{beer.buddy}
+      div $#{beer.amount}
+
